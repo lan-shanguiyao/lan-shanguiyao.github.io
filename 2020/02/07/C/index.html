@@ -21,6 +21,9 @@
     <meta name="keywords" content="C++">
   
   
+    <meta name="description" content=" C++
+ 知识点">
+  
 
   <!-- feed -->
   
@@ -346,6 +349,7 @@
           
           <h1 id="c"><a class="markdownIt-Anchor" href="#c"></a> <strong>C++</strong></h1>
 <h2 id="知识点"><a class="markdownIt-Anchor" href="#知识点"></a> <strong>知识点</strong></h2>
+<a id="more"></a>
 <h3 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> <strong>函数</strong></h3>
 <p> main函数的形参被称为命令行参数,由操作系统启动程序时初始化,main函数的返回值最终传递给操作系统.<br />
  声明函数,形参表只需给出包含完整的类型信息即可,形参名可以省略(不推荐使用).</p>
@@ -405,7 +409,22 @@
 <li><strong>类</strong></li>
 </ol>
 <p> 定义:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span>/*类名称*/</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>: <span class="comment">/*外部接口*/</span></span><br><span class="line">        Students();</span><br><span class="line">        ~Students();</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line">        </span><br><span class="line">    protectde:</span><br><span class="line">        <span class="comment">/*保护型成员*/</span></span><br><span class="line">    <span class="keyword">private</span>:    <span class="comment">/*私有成员*/</span></span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="keyword">float</span> scores;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//成员函数的实现</span></span><br><span class="line">返回值</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Students</span>/*类名称*/
+{</span>
+    <span class="hljs-keyword">public</span>: <span class="hljs-comment">/*外部接口*/</span>
+        Students();
+        ~Students();
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">()</span></span>;
+        
+    protectde:
+        <span class="hljs-comment">/*保护型成员*/</span>
+    <span class="hljs-keyword">private</span>:    <span class="hljs-comment">/*私有成员*/</span>
+        <span class="hljs-keyword">int</span> num;
+        <span class="hljs-keyword">float</span> scores;
+}
+<span class="hljs-comment">//成员函数的实现</span>
+返回值
+</code></pre>
 <p> 访问控制:<br />
  保护类型成员的性质与私有成员的性质相似,其差别在于继承过程中对产生的新类影响不同.</p>
 <ol start="3">
@@ -417,12 +436,139 @@
 <ul>
 <li><strong>构造函数与析构函数</strong></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students() &#123;	<span class="comment">//普通无参构造函数</span></span><br><span class="line">		num = <span class="number">0</span>;</span><br><span class="line">		scores = <span class="number">0.0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Students(<span class="keyword">int</span> num1, <span class="keyword">float</span> scores1);	<span class="comment">//普通有参构造函数</span></span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line">Students::Students(<span class="keyword">int</span> num1, <span class="keyword">float</span> scores1)</span><br><span class="line">&#123;</span><br><span class="line">	num = num1;</span><br><span class="line">	scores = scores1;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)</span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用Students(int num1, float scores1);</span></span><br><span class="line">	Students s2;	<span class="comment">//调用Students()</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Students</span>
+{</span>
+<span class="hljs-keyword">public</span>:
+	Students() {	<span class="hljs-comment">//普通无参构造函数</span>
+		num = <span class="hljs-number">0</span>;
+		scores = <span class="hljs-number">0.0</span>;
+	}
+	Students(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">float</span> scores1);	<span class="hljs-comment">//普通有参构造函数</span>
+	Students(Students&amp; Stu);	<span class="hljs-comment">//复制构造函数</span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">()</span></span>;
+
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-keyword">int</span> num;
+	<span class="hljs-keyword">float</span> scores;
+};
+Students::Students(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">float</span> scores1)
+{
+	num = num1;
+	scores = scores1;
+	<span class="hljs-keyword">return</span>;
+}
+
+Students::Students(Students&amp; Stu)
+{
+	num = Stu.num;
+	scores = Stu.scores;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Students::output</span><span class="hljs-params">()</span>	<span class="hljs-comment">//必须存在</span>
+</span>{
+	<span class="hljs-built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; scores &lt;&lt; <span class="hljs-built_in">endl</span>;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-function">Students <span class="hljs-title">s1</span><span class="hljs-params">(<span class="hljs-number">2</span>, <span class="hljs-number">1.0</span>)</span></span>;	<span class="hljs-comment">//调用Students(int num1, float scores1);</span>
+	Students s2;	<span class="hljs-comment">//调用Students()</span>
+	<span class="hljs-function">Students <span class="hljs-title">s3</span><span class="hljs-params">(s1)</span></span>;	<span class="hljs-comment">//调用复制构造函数</span>
+	s1.output();
+	s2.output();
+	s3.output();
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
 <p> 或</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students(<span class="keyword">int</span> num1 = <span class="number">0</span>, <span class="keyword">float</span> scores1 = <span class="number">0.0</span>) &#123;		<span class="comment">//普通构造函数</span></span><br><span class="line">		num = num1;</span><br><span class="line">		scores = scores1;</span><br><span class="line">	&#125;</span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	~Students();	<span class="comment">//析构函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)	<span class="comment">//复制构造函数的实现</span></span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	Students s2;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Students</span>
+{</span>
+<span class="hljs-keyword">public</span>:
+	Students(<span class="hljs-keyword">int</span> num1 = <span class="hljs-number">0</span>, <span class="hljs-keyword">float</span> scores1 = <span class="hljs-number">0.0</span>) {		<span class="hljs-comment">//普通构造函数</span>
+		num = num1;
+		scores = scores1;
+	}
+	Students(Students&amp; Stu);	<span class="hljs-comment">//复制构造函数</span>
+	~Students();	<span class="hljs-comment">//析构函数</span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">()</span></span>;
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-keyword">int</span> num;
+	<span class="hljs-keyword">float</span> scores;
+};
+
+Students::Students(Students&amp; Stu)	<span class="hljs-comment">//复制构造函数的实现</span>
+{
+	num = Stu.num;
+	scores = Stu.scores;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Students::output</span><span class="hljs-params">()</span>	<span class="hljs-comment">//必须存在</span>
+</span>{
+	<span class="hljs-built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; scores &lt;&lt; <span class="hljs-built_in">endl</span>;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-function">Students <span class="hljs-title">s1</span><span class="hljs-params">(<span class="hljs-number">2</span>, <span class="hljs-number">1.0</span>)</span></span>;	<span class="hljs-comment">//调用普通构造函数</span>
+	Students s2;	<span class="hljs-comment">//调用普通构造函数</span>
+	<span class="hljs-function">Students <span class="hljs-title">s3</span><span class="hljs-params">(s1)</span></span>;	<span class="hljs-comment">//调用复制构造函数</span>
+	s1.output();
+	s2.output();
+	s3.output();
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
 <p> 用构造函数定义的类型转换(显式类型转换)需要在构造函数声明前加上<code>explicit</code></p>
 <p>或</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students(<span class="keyword">int</span> num1 = <span class="number">0</span>, <span class="keyword">float</span> scores1 = <span class="number">0.0</span>) :num(num1), scores(scores1) &#123; &#125;	<span class="comment">//普通构造函数 通过初始化列表来初始化</span></span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	<span class="comment">//~Students();	//析构函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)	<span class="comment">//复制构造函数的实现</span></span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	Students s2;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Students</span>
+{</span>
+<span class="hljs-keyword">public</span>:
+	Students(<span class="hljs-keyword">int</span> num1 = <span class="hljs-number">0</span>, <span class="hljs-keyword">float</span> scores1 = <span class="hljs-number">0.0</span>) :num(num1), scores(scores1) { }	<span class="hljs-comment">//普通构造函数 通过初始化列表来初始化</span>
+	Students(Students&amp; Stu);	<span class="hljs-comment">//复制构造函数</span>
+	<span class="hljs-comment">//~Students();	//析构函数</span>
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output</span><span class="hljs-params">()</span></span>;
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-keyword">int</span> num;
+	<span class="hljs-keyword">float</span> scores;
+};
+
+Students::Students(Students&amp; Stu)	<span class="hljs-comment">//复制构造函数的实现</span>
+{
+	num = Stu.num;
+	scores = Stu.scores;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Students::output</span><span class="hljs-params">()</span>	<span class="hljs-comment">//必须存在</span>
+</span>{
+	<span class="hljs-built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; scores &lt;&lt; <span class="hljs-built_in">endl</span>;
+	<span class="hljs-keyword">return</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-function">Students <span class="hljs-title">s1</span><span class="hljs-params">(<span class="hljs-number">2</span>, <span class="hljs-number">1.0</span>)</span></span>;	<span class="hljs-comment">//调用普通构造函数</span>
+	Students s2;	<span class="hljs-comment">//调用普通构造函数</span>
+	<span class="hljs-function">Students <span class="hljs-title">s3</span><span class="hljs-params">(s1)</span></span>;	<span class="hljs-comment">//调用复制构造函数</span>
+	s1.output();
+	s2.output();
+	s3.output();
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
 <blockquote>
 <p>初始化列表见课本P117底部</p>
 </blockquote>
@@ -446,7 +592,16 @@
 <li><strong>联合体</strong></li>
 </ul>
 <p> 联合体的全部数据成员共享同一组内存单元,即<strong>联合体变量中的成员同时至多只有一个是有意义的</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="comment">/*联合体名称*/</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:<span class="comment">/*默认*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="comment">/*保护型成员*/</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="comment">/*私有成员*/</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-keyword">union</span> <span class="hljs-comment">/*联合体名称*/</span>
+{
+<span class="hljs-keyword">public</span>:<span class="hljs-comment">/*默认*/</span>
+
+<span class="hljs-keyword">protected</span>:
+	<span class="hljs-comment">/*保护型成员*/</span>
+<span class="hljs-keyword">private</span>:
+	<span class="hljs-comment">/*私有成员*/</span>
+};
+</code></pre>
 <ol start="6">
 <li><strong>位域</strong></li>
 </ol>
@@ -474,7 +629,10 @@
 <p><strong>命名空间作用域</strong></p>
 </li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 命名空间名&#123;</span><br><span class="line">	各种声明(函数声明,类声明)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-keyword">namespace</span> 命名空间名{
+	各种声明(函数声明,类声明)
+}
+</code></pre>
 <p>或<br />
 <code>using 命名空间名 :: 标识符名</code><br />
 <code>using namespace 命名空间名</code></p>
@@ -587,12 +745,17 @@ B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据
 <ul>
 <li>运算符重载</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">返回类型 <span class="keyword">operator</span> 运算符 (形参表)</span><br><span class="line">&#123;</span><br><span class="line">    函数体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">返回类型 <span class="hljs-keyword">operator</span> 运算符 (形参表)
+{
+    函数体;
+}
+</code></pre>
 <h3 id="类的继承与派生"><a class="markdownIt-Anchor" href="#类的继承与派生"></a> <strong>类的继承与派生</strong></h3>
 <ol>
 <li><strong>派生类的定义</strong></li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">   
+</code></pre>
 <ul>
 <li>多继承 :有多个基类</li>
 <li>单继承: 一个派生类只有一个直接基类</li>
@@ -636,7 +799,13 @@ B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据
 <ul>
 <li>不借助任何变量实现变量交换</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a&#x3D;a+b;&#x2F;&#x2F;a&#x3D;a0;b&#x3D;b0; a&#x3D;a0+b0;</span><br><span class="line">b&#x3D;a-b;&#x2F;&#x2F;b&#x3D;a0+b0-b0&#x3D;a0;</span><br><span class="line">a&#x3D;a-b;&#x2F;&#x2F;a&#x3D;a0+b0-a0&#x3D;b0;</span><br><span class="line">&#x2F;&#x2F;没什么软用</span><br><span class="line">&#x2F;&#x2F;或简写成</span><br><span class="line">a^&#x3D;b^&#x3D;a^&#x3D;b;&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a=a+b;//a=a0;b=b0; a=a0+b0;
+b=a-b;//b=a0+b0-b0=a0;
+a=a-b;//a=a0+b0-a0=b0;
+//没什么软用
+//或简写成
+a^=b^=a^=b;//......
+</code></pre>
 
           
             <div class='article_footer'>
@@ -669,10 +838,10 @@ B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-07T17:05:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-06T09:50:27+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年2月7日</p>
+    <p>更新于：2020年5月6日</p>
   </a>
 </div>
 
@@ -699,11 +868,10 @@ B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据
               <a class='prev' href='/2020/02/07/Last-fm/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Last.fm</p>
                 <p class='content'> 用 Last.fm 记录你听的每一首歌
- 起因
-本来想用豆瓣来记录自己的听歌，但豆瓣上曲目混乱，遂作罢。于是开始使用 Last.fm 。
- 听歌平台
+ Last.fm 是什么
+Last.fm 是一个以英国为总部的网络电台和音乐社区。
 
-流媒体平台（按使用频率排序）：Apple...</p>
+Last.fm 使用的音乐推荐方式称为“Last.fm Scrob...</p>
               </a>
             
             

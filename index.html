@@ -630,46 +630,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="用-lastfm-记录你听的每一首歌"><a class="markdownIt-Anchor" href="#用-lastfm-记录你听的每一首歌"></a> 用 <a href="http://Last.fm" target="_blank" rel="noopener">Last.fm</a> 记录你听的每一首歌</h1>
-<h2 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h2>
-<p>本来想用豆瓣来记录自己的听歌，但豆瓣上曲目混乱，遂作罢。于是开始使用 <a href="http://last.fm" target="_blank" rel="noopener">Last.fm</a> 。</p>
-<h2 id="听歌平台"><a class="markdownIt-Anchor" href="#听歌平台"></a> 听歌平台</h2>
-<ul>
-<li>流媒体平台（按使用频率排序）：Apple Music、<a href="https://listen1.github.io/listen1/" target="_blank" rel="noopener">Listen1</a>（聚合几乎国内所有主流音乐平台）、 Spotify 、QQ音乐、Google Play Music</li>
-<li>本地播放： foobar2000 、 <a href="http://www.aimp.ru/" target="_blank" rel="noopener">AIMP</a> 、 <a href="http://www.digimezzo.com/software/dopamine/" target="_blank" rel="noopener">Dopamine</a></li>
-</ul>
-<p>下面是我个人的解决方案</p>
-<h2 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h2>
-<h3 id="本地播放的解决方案"><a class="markdownIt-Anchor" href="#本地播放的解决方案"></a> 本地播放的解决方案</h3>
-<ol>
-<li>
-<p>foobar2000</p>
-<p>foobar2000 插件众多，不难找到一款同步到 <a href="http://Last.fm" target="_blank" rel="noopener">Last.fm</a> 的插件，我试过foo_audioscrobbler-1.4.7但不知是我电脑原因还是网络原因，始终不能成功。于是我在 Github 上抱着试试的心态找到了 <a href="https://github.com/gix/foo_scrobble" target="_blank" rel="noopener">foo_scrobble</a> ，一切顺利，在此感谢开发者。</p>
-</li>
-<li>
-<p>AIMP</p>
-<p>AIMP有自带的 <a href="http://Last.fm" target="_blank" rel="noopener">Last.fm</a> 但不知为何，记录不能正常进行，只能偶尔记录，AIMP的使用频率也不高，遂作罢。</p>
-</li>
-<li>
-<p>Dopamine</p>
-<p>Dopamine 也有自带的 <a href="http://Last.fm" target="_blank" rel="noopener">Last.fm</a> ，这个可以正常工作。</p>
-</li>
-</ol>
-<h3 id="流媒体平台的解决方案"><a class="markdownIt-Anchor" href="#流媒体平台的解决方案"></a> 流媒体平台的解决方案</h3>
-<ol>
-<li>
-<p>Win10</p>
-<p>Apple Music 需要使用官方的程序来进行记录，QQ音乐等平台有 Listen1</p>
-</li>
-<li>
-<p>Android</p>
-<p>Android需要安装 <a href="https://play.google.com/store/apps/details?id=com.peterjosling.scroball" target="_blank" rel="noopener">Scroball for Last.fm</a> 来记录，无论是本地播放还是流媒体播放都能胜任。</p>
-</li>
-</ol>
-<hr />
-
+<h2 id="lastfm"><a class="markdownIt-Anchor" href="#lastfm"></a> <a href="http://Last.fm" target="_blank" rel="noopener">Last.fm</a> 是什么</h2>
+<p><a href="https://www.last.fm/zh/home" target="_blank" rel="noopener">Last.fm</a> 是一个以英国为总部的网络电台和音乐社区。</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/02/07/Last-fm/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -742,301 +713,15 @@
       
         <h1 id="c"><a class="markdownIt-Anchor" href="#c"></a> <strong>C++</strong></h1>
 <h2 id="知识点"><a class="markdownIt-Anchor" href="#知识点"></a> <strong>知识点</strong></h2>
-<h3 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> <strong>函数</strong></h3>
-<p> main函数的形参被称为命令行参数,由操作系统启动程序时初始化,main函数的返回值最终传递给操作系统.<br />
- 声明函数,形参表只需给出包含完整的类型信息即可,形参名可以省略(不推荐使用).</p>
-<ol>
-<li><strong>参数传递</strong></li>
-</ol>
-<p> 值传递:函数调用时,用实参初始化形参(将实参的值传递给形参,单向传递);形参获得值以后,无论值是否改变,均与形参无关!<br />
- 引用传递:用引用作为形参,在函数调用时发生的参数传递,称为引用传递.引用:<code>int i,j;int &amp;ri=i;j=10;ri=j;</code>相当于<code>i=j;</code>(可以理解为取地址).</p>
-<ol start="3">
-<li><strong>内联函数</strong></li>
-</ol>
-<p> 内联函数适用于功能简单,规模较小,使用频繁的函数(非递归).<br />
- 内联函数不是在调用时发生控制转移,而是在编译时将函数体嵌入在每一个调用处.<br />
- 语法:<code>inline void a(int x);</code>(显式声明).</p>
-<ol start="4">
-<li><strong>函数重载</strong></li>
-</ol>
-<p>  <strong>形参必须不同!!!</strong> 函数名相同,形参的个数或类型不同.功能相近,作用域相同,相同的函数名定义.<br />
- 注意: 使用具有默认形参值的函数重载形式时,需要注意防止二义性</p>
-<ol start="5">
-<li><strong>杂</strong></li>
-</ol>
-<p> <strong>运行栈</strong>:函数的形参和局部变量<br />
- 运行栈中的数据分为一个个栈帧,每个栈帧对应一次函数调用;执行中的函数的栈帧,总处在运行栈的最顶端.</p>
-<hr />
-<h3 id="类与对象"><a class="markdownIt-Anchor" href="#类与对象"></a> <strong>类与对象</strong></h3>
-<ol>
-<li><strong>对象</strong></li>
-</ol>
-<p> <strong>主要特点</strong> :抽象,封装,继承,多态</p>
-<ul>
-<li>抽象</li>
-</ul>
-<p> 对对象进行概括,抽出一类对象的公共性质并加以描述的过程.<br />
- 抽象分为:数据抽象和行为抽象<br />
- 数据抽象:描述此对象的属性和状态,即此对象区别与彼对象的特征<br />
- 行为抽象:此对象的共同行为或功能特征</p>
-<ul>
-<li><strong>封装</strong></li>
-</ul>
-<p> 封装:将抽象得到的数据和行为相结合,形成一个有机的整体;即将数据与操作数据的代码相结合,形成类,数据与函数均是类的成员.<br />
- 封装使一部分成员充当类与外部的接口</p>
-<ul>
-<li>
-<p><strong>继承</strong></p>
-</li>
-<li>
-<p><strong>多态</strong></p>
-</li>
-</ul>
-<p> 分为:强制多态,重载多态,类型参数多态,包含多态<br />
- 强制多态:数据类型转换<br />
- 重载多态:函数重载,运算符重载<br />
- 类型参数多态:函数模板,类模板<br />
- 包含多态:虚函数</p>
-<ol start="2">
-<li><strong>类</strong></li>
-</ol>
-<p> 定义:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span>/*类名称*/</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>: <span class="comment">/*外部接口*/</span></span><br><span class="line">        Students();</span><br><span class="line">        ~Students();</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line">        </span><br><span class="line">    protectde:</span><br><span class="line">        <span class="comment">/*保护型成员*/</span></span><br><span class="line">    <span class="keyword">private</span>:    <span class="comment">/*私有成员*/</span></span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="keyword">float</span> scores;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//成员函数的实现</span></span><br><span class="line">返回值</span><br></pre></td></tr></table></figure>
-<p> 访问控制:<br />
- 保护类型成员的性质与私有成员的性质相似,其差别在于继承过程中对产生的新类影响不同.</p>
-<ol start="3">
-<li><strong>对象</strong></li>
-</ol>
-<p> 声明:<br />
- 类名 对象名;</p>
-<p>类成员函数的默认值,一定要写在类定义中,而不能写在类定义之外的函数实现中.</p>
-<ul>
-<li><strong>构造函数与析构函数</strong></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students() &#123;	<span class="comment">//普通无参构造函数</span></span><br><span class="line">		num = <span class="number">0</span>;</span><br><span class="line">		scores = <span class="number">0.0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Students(<span class="keyword">int</span> num1, <span class="keyword">float</span> scores1);	<span class="comment">//普通有参构造函数</span></span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line">Students::Students(<span class="keyword">int</span> num1, <span class="keyword">float</span> scores1)</span><br><span class="line">&#123;</span><br><span class="line">	num = num1;</span><br><span class="line">	scores = scores1;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)</span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用Students(int num1, float scores1);</span></span><br><span class="line">	Students s2;	<span class="comment">//调用Students()</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 或</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students(<span class="keyword">int</span> num1 = <span class="number">0</span>, <span class="keyword">float</span> scores1 = <span class="number">0.0</span>) &#123;		<span class="comment">//普通构造函数</span></span><br><span class="line">		num = num1;</span><br><span class="line">		scores = scores1;</span><br><span class="line">	&#125;</span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	~Students();	<span class="comment">//析构函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)	<span class="comment">//复制构造函数的实现</span></span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	Students s2;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 用构造函数定义的类型转换(显式类型转换)需要在构造函数声明前加上<code>explicit</code></p>
-<p>或</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Students(<span class="keyword">int</span> num1 = <span class="number">0</span>, <span class="keyword">float</span> scores1 = <span class="number">0.0</span>) :num(num1), scores(scores1) &#123; &#125;	<span class="comment">//普通构造函数 通过初始化列表来初始化</span></span><br><span class="line">	Students(Students&amp; Stu);	<span class="comment">//复制构造函数</span></span><br><span class="line">	<span class="comment">//~Students();	//析构函数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">float</span> scores;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Students::Students(Students&amp; Stu)	<span class="comment">//复制构造函数的实现</span></span><br><span class="line">&#123;</span><br><span class="line">	num = Stu.num;</span><br><span class="line">	scores = Stu.scores;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Students::output</span><span class="params">()</span>	<span class="comment">//必须存在</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">" "</span> &lt;&lt; scores &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="function">Students <span class="title">s1</span><span class="params">(<span class="number">2</span>, <span class="number">1.0</span>)</span></span>;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	Students s2;	<span class="comment">//调用普通构造函数</span></span><br><span class="line">	<span class="function">Students <span class="title">s3</span><span class="params">(s1)</span></span>;	<span class="comment">//调用复制构造函数</span></span><br><span class="line">	s1.output();</span><br><span class="line">	s2.output();</span><br><span class="line">	s3.output();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>初始化列表见课本P117底部</p>
-</blockquote>
-<ul>
-<li><strong>类的组合</strong></li>
-</ul>
-<p> 组合类构造函数的定义为:<br />
-类名::类名(形参表):内嵌对象(形参表),内嵌对象(形参表)</p>
-<ol start="4">
-<li><strong>UML图形标识</strong></li>
-</ol>
-<p>暂略</p>
-<ol start="5">
-<li><strong>结构体与联合体</strong></li>
-</ol>
-<ul>
-<li><strong>结构体</strong></li>
-</ul>
-<p>暂略</p>
-<ul>
-<li><strong>联合体</strong></li>
-</ul>
-<p> 联合体的全部数据成员共享同一组内存单元,即<strong>联合体变量中的成员同时至多只有一个是有意义的</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="comment">/*联合体名称*/</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:<span class="comment">/*默认*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="comment">/*保护型成员*/</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="comment">/*私有成员*/</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li><strong>位域</strong></li>
-</ol>
-<p> 位域:允许将类中的多个数据成员打包,使不同成员可以共享相同的字节的机制.<br />
- 定义方式:  <code>数据类型说明符 成员名 : 位数</code><br />
- 限制:bool,char,int,enum类型的成员</p>
-<h3 id="数据的共享与保护"><a class="markdownIt-Anchor" href="#数据的共享与保护"></a> <strong>数据的共享与保护</strong></h3>
-<ol>
-<li><strong>作用域</strong></li>
-</ol>
-<ul>
-<li>
-<p><strong>函数原型作用域</strong></p>
-</li>
-<li>
-<p><strong>局部作用域</strong></p>
-</li>
-</ul>
-<p>局部变量: 具有局部作用域的变量</p>
-<ul>
-<li>
-<p><strong>类作用域</strong></p>
-</li>
-<li>
-<p><strong>命名空间作用域</strong></p>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 命名空间名&#123;</span><br><span class="line">	各种声明(函数声明,类声明)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或<br />
-<code>using 命名空间名 :: 标识符名</code><br />
-<code>using namespace 命名空间名</code></p>
-<p>全局变量:具有命名空间作用域的变量</p>
-<ul>
-<li><strong>作用域可见性</strong></li>
-</ul>
-<p>标识符声明在前,引用在后<br />
-在具有包含关系的作用域中声明了同名标识符,则外层标识符在内层不可见</p>
-<ol start="2">
-<li><strong>生存期</strong></li>
-</ol>
-<ul>
-<li><strong>静态生存期</strong></li>
-</ul>
-<p>对象的生存期与程序的运行期相同</p>
-<p>在命名空间作用域中声明的对象均具有静态生存期</p>
-<p>若在局部作用域中声明具有静态生存期 需要使用关键字<code>static</code></p>
-<p>定义时未指定初值的基本类型静态生存期变量,会被初始化为0</p>
-<ul>
-<li>
-<p><strong>动态生存期</strong></p>
-</li>
-<li>
-<p><strong>类的静态成员</strong></p>
-</li>
-<li>
-<p>静态数据成员</p>
-</li>
-</ul>
-<p>类的静态数据成员具有静态生存期<br />
-关键字:<code>static</code><br />
-在类的定义中仅仅对静态数据成员进行<strong>引用性声明</strong>,<br />
-必须在<strong>命名空间作用域</strong>的地方进行<strong>类名限定定义性声明</strong>,此时可进行初始化<br />
-例如: <code>int Point::count=0;</code></p>
-<ul>
-<li>静态函数成员</li>
-</ul>
-<p>静态成员函数可以通过<strong>类名或对象名</strong>来调用(习惯于通过类名调用)<br />
-非静态成员函数<strong>只能通过对象名</strong>来调用<br />
-关键字:<code>static</code><br />
-静态成员函数能直接访问该类的静态数据和函数成员,如要访问非静态成员,必须通过对象名</p>
-<blockquote>
-<p><a id="访问属性"> </a>  <span id="jump">访问属性</span></p>
-</blockquote>
-<ol start="3">
-<li><strong>类的友元</strong></li>
-</ol>
-<p>关键字: <code>friend</code></p>
-<ul>
-<li>友元函数</li>
-<li>友元类</li>
-</ul>
-<p>1.友元关系不能传递<br />
-2,友元关系是单向的<br />
-B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据,但A类成员函数不能访问B类的私有与保护数据<br />
-3.友元关系不能被继承</p>
-<ol start="4">
-<li><strong>共享数据的保护</strong></li>
-</ol>
-<p>关键字: <code>const</code></p>
-<ul>
-<li><strong>常对象</strong></li>
-</ul>
-<p><code>const 类型说明符 对象名;</code><br />
-<strong>常对象必须进行初始化,而且不能被更新</strong></p>
-<ul>
-<li><strong>常成员函数</strong></li>
-</ul>
-<p><code>类型说明符 函数名(参数表) const;</code><br />
-常成员函数调用期间,目的对象均视为常对象,不管是否通过常对象调用</p>
-<ul>
-<li><strong>常数据成员</strong></li>
-</ul>
-<p>初始化只能通过调用构造函数的初始化列表来初始化</p>
-<ul>
-<li><strong>常引用</strong></li>
-</ul>
-<p><code>const 类型说明符&amp;引用名;</code></p>
-<ul>
-<li>外部变量</li>
-</ul>
-<p>关键字<code>extern</code></p>
-<blockquote>
-<p>using namespace 语句不宜放在头文件中</p>
-</blockquote>
-<hr />
-<ol>
-<li><strong>指针</strong></li>
-</ol>
-<ul>
-<li><strong>指向函数的指针</strong></li>
-</ul>
-<p>声明:<code>数据类型 (*函数指针名) (形参表)</code></p>
-<p>赋值:<code>函数指针名=函数名</code></p>
-<p>返回值相同,形参表相同</p>
-<ul>
-<li><strong>对象指针</strong></li>
-</ul>
-<p>声明:<code>类名 * 对象指针名</code></p>
-<p>应用: <code>对象指针名 -&gt; 成员名</code></p>
-<ul>
-<li>this指针</li>
-</ul>
-<p>隐含与每一个类中的非静态成员函数中,指向正在被成员函数操作的对象</p>
-<h3 id="类的多态性"><a class="markdownIt-Anchor" href="#类的多态性"></a> <strong>类的多态性</strong></h3>
-<ol>
-<li><strong>重载多态</strong></li>
-</ol>
-<ul>
-<li>运算符重载</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">返回类型 <span class="keyword">operator</span> 运算符 (形参表)</span><br><span class="line">&#123;</span><br><span class="line">    函数体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类的继承与派生"><a class="markdownIt-Anchor" href="#类的继承与派生"></a> <strong>类的继承与派生</strong></h3>
-<ol>
-<li><strong>派生类的定义</strong></li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
-<ul>
-<li>多继承 :有多个基类</li>
-<li>单继承: 一个派生类只有一个直接基类</li>
-<li>继承方式关键字:<code>public</code> (公有继承) <code>protected</code>(保护继承)<code>private</code>(私有继承,默认)</li>
-<li>同名隐藏:派生类声明一个与基类成员同名的新成员,则该基类同名成员会被隐藏</li>
-</ul>
-<ol start="2">
-<li><strong>访问控制</strong></li>
-</ol>
-<ul>
-<li>公有继承私有成员不可<strong>直接</strong>访问,而公有成员与保护成员的访问属性不变</li>
-</ul>
-<blockquote>
-<p><a href="#jump">访问属性</a></p>
-</blockquote>
-<p>基类的</p>
-<ul>
-<li>私有继承</li>
-<li>保护继承</li>
-</ul>
-<hr />
-<hr />
-<hr />
-<h2 id="奇技"><a class="markdownIt-Anchor" href="#奇技"></a> <strong>奇技</strong></h2>
-<ul>
-<li><strong>取整函数</strong></li>
-</ul>
-<p> 向下取整函数:得到不大于一个数的最大整数<br />
-声明:<code>&lt;cmath&gt;</code><br />
-应用:四舍五入取整:<code>m=floor(a+0.5);</code><br />
-保留小数点后两位:<code>m=floor(a*100+0.5)/100;</code><br />
- 向上取整函数:得到一个不小于一个数的最小整数<br />
-声明:<code>&lt;cmath&gt;</code><br />
-<code>ceil</code></p>
-<p><code>round</code><br />
-四舍五入到最近的整数</p>
-<ul>
-<li><strong>Π的定义</strong></li>
-</ul>
-<p><code>const double Pi=acos(-1.0);</code></p>
-<ul>
-<li>不借助任何变量实现变量交换</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a&#x3D;a+b;&#x2F;&#x2F;a&#x3D;a0;b&#x3D;b0; a&#x3D;a0+b0;</span><br><span class="line">b&#x3D;a-b;&#x2F;&#x2F;b&#x3D;a0+b0-b0&#x3D;a0;</span><br><span class="line">a&#x3D;a-b;&#x2F;&#x2F;a&#x3D;a0+b0-a0&#x3D;b0;</span><br><span class="line">&#x2F;&#x2F;没什么软用</span><br><span class="line">&#x2F;&#x2F;或简写成</span><br><span class="line">a^&#x3D;b^&#x3D;a^&#x3D;b;&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/02/07/C/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1152,7 +837,7 @@ B类是A类的友元,B类的成员函数可以访问A类的私有与保护数据
 
 
     <div class='content'>
-      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/%E6%8A%98%E8%85%BE-Music/" style="font-size: 14px; color: #999">折腾, Music</a>
+      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/Music/" style="font-size: 14px; color: #999">Music</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a>
     </div>
   </section>
 
