@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,22 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：leetcode - DunLan&#39;s Island</title>
+    <title>leetcode 1 两数之和 - DunLan&#39;s Island</title>
   
+    <meta name="keywords" content="题解,leetcode">
+  
+  
+    <meta name="description" content=" leetcode 1.两数之和
+ 题目
+给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+题目链接
+
+参考文章：
+
+官方题解
+">
   
 
   <!-- feed -->
@@ -90,7 +102,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -274,27 +286,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
+
   
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -303,7 +300,18 @@
       
       <div class="meta" id="header-meta">
         
+          
+  <h1 class="title">
+    <a href="/2020/07/07/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+      leetcode 1 两数之和
+    </a>
+  </h1>
+
+
+        
         <div class='new-meta-box'>
+          
+            
           
             
               
@@ -344,11 +352,6 @@
 
             
           
-            
-              
-
-            
-          
         </div>
         
           <hr>
@@ -358,10 +361,10 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="leetcode-1两数之和"><a class="markdownIt-Anchor" href="#leetcode-1两数之和"></a> leetcode 1.两数之和</h1>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="leetcode-1两数之和"><a class="markdownIt-Anchor" href="#leetcode-1两数之和"></a> leetcode 1.两数之和</h1>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
 <p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
 <p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
@@ -372,128 +375,173 @@
 <blockquote>
 <p><a href="https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-2/" target="_blank" rel="noopener">官方题解</a></p>
 </blockquote>
-      
-    </div>
+<a id="more"></a>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>问题可以简化成给定一个数组<code>nums</code>，<code>a + b = target</code>且<code>a</code>、<code>b</code>均属于<code>nums</code>。</p>
+<p>等价成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>∈</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mtext> </mtext><mi>a</mi><mi>n</mi><mi>d</mi><mtext> </mtext><mo stretchy="false">(</mo><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo><mo>∈</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">a\in nums\ and\ (target-a)\in nums</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mspace"> </span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span></span></span></span>。</p>
+<h2 id="解法"><a class="markdownIt-Anchor" href="#解法"></a> 解法</h2>
+<p>遍历数组，每次判断<code>target - nums[i]</code>是否在数组中。易得暴力法</p>
+<h3 id="解法1暴力"><a class="markdownIt-Anchor" href="#解法1暴力"></a> 解法1:暴力</h3>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span>
+</span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
+
+    <span class="hljs-comment">//暴力</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)
+    {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++)
+        {
+            <span class="hljs-keyword">if</span> (nums[j] == target - nums[i])
+            {
+                ans.push_back(i);
+                ans.push_back(j);
+                <span class="hljs-keyword">break</span>;
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> ans;
+}
+</code></pre>
+<h3 id="解法2哈希map"><a class="markdownIt-Anchor" href="#解法2哈希map"></a> 解法2:哈希map</h3>
+<p>暴力解法的复杂度高达<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，需要优化。优化的关键在于快速查找<code>target - nums[i]</code>是否在数组中。保持数组中的每个元素与其索引相互对应的最好方法是什么？<strong>哈希表</strong>。</p>
+<pre class="highlight"><code class="C++"><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span>
+</span>{
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
+
+    <span class="hljs-comment">//两遍哈希表</span>
+    <span class="hljs-comment">// unordered_map&lt;int, int&gt; maps;</span>
+    <span class="hljs-comment">// for (int i = 0; i &lt; nums.size(); i++)</span>
+    <span class="hljs-comment">// {</span>
+    <span class="hljs-comment">//     maps.insert(pair&lt;int, int&gt;(nums[i], i));</span>
+    <span class="hljs-comment">// }</span>
+
+    <span class="hljs-comment">// unordered_map&lt;int, int&gt;::iterator it;</span>
+    <span class="hljs-comment">// for (int i = 0; i &lt; nums.size(); i++)</span>
+    <span class="hljs-comment">// {</span>
+    <span class="hljs-comment">//     if ((it = maps.find(target - nums[i])) != maps.end() &amp;&amp; it-&gt;second != i)</span>
+    <span class="hljs-comment">//     {</span>
+    <span class="hljs-comment">//         ans.push_back(i);</span>
+    <span class="hljs-comment">//         ans.push_back(it-&gt;second);</span>
+    <span class="hljs-comment">//         break;</span>
+    <span class="hljs-comment">//     }</span>
+    <span class="hljs-comment">// }</span>
+
+    <span class="hljs-comment">//一遍哈希表</span>
+    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; maps;
+    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;::iterator it;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)
+    {
+        <span class="hljs-keyword">if</span> ((it = maps.<span class="hljs-built_in">find</span>(target - nums[i])) != maps.<span class="hljs-built_in">end</span>() &amp;&amp; it-&gt;second != i)
+        {
+            ans.push_back(i);
+            ans.push_back(it-&gt;second);
+            <span class="hljs-keyword">break</span>;
+        }
+        maps.insert(pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;(nums[i], i));
+    }
+
+    <span class="hljs-keyword">return</span> ans;
+}
+</code></pre>
+
+          
+            <div class='article_footer'>
+              
+                
+  
     
-      
-        <div class="button readmore">
-          <a href="/2020/07/07/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
+    
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+              
+            </div>
+          
         </div>
-      
-    
-  </section>
-</article>
-
-          </div>
         
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
       
         
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-        <div class='new-meta-box'>
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lan-shanguiyao.github.io/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/lan-shanguiyao/cdn-blog/images/avatar.jpg">
-    <p>DunLan</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-07T14:12:34+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月6日</p>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月7日</p>
   </a>
 </div>
 
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
         
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="leetcode-9回文数"><a class="markdownIt-Anchor" href="#leetcode-9回文数"></a> leetcode 9.回文数</h1>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
-<blockquote>
-<p><a href="https://leetcode-cn.com/problems/palindrome-number/" target="_blank" rel="noopener">题目链接</a></p>
-</blockquote>
-<p>参考文章：</p>
-<blockquote>
-<p><a href="https://leetcode-cn.com/problems/palindrome-number/solution/ji-jian-jie-fa-by-ijzqardmbd-2/" target="_blank" rel="noopener">极简数学解法</a></p>
-</blockquote>
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A2%98%E8%A7%A3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>题解</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/leetcode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>leetcode</p></a></div>
+
+
+        
+      
+        
       
     </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/06/leetcode-9-%E5%9B%9E%E6%96%87%E6%95%B0/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
   </section>
-</article>
 
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/06/leetcode-9-%E5%9B%9E%E6%96%87%E6%95%B0/'>
+                <p class='title'>leetcode 9.回文数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'> leetcode 9.回文数
+ 题目
+判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+
+题目链接
+
+参考文章：
+
+极简数学解法
+
+
+ 思路
+首先想到的...</p>
+              </a>
+            
           </div>
         
-      
-    
-  </section>
+      </section>
+    </article>
   
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script>
 window.MathJax = {
@@ -513,120 +561,41 @@ window.MathJax = {
 };
 </script>
 
-    
-
-  
 
 
-    
-  
+
+  <script>
+    window.subData = {
+      title: 'leetcode 1 两数之和',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger blur desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/lan-shanguiyao/cdn-blog/images/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>There is only heroism in the world,to see the world as it is and to love it</p>
-
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/zaying@protonmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/lan-shanguiyao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category blur desktop">
+
+  <section class="widget toc-wrapper blur desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/WSL/" href="/categories/WSL/"
-            id="categoriesWSL"
-            ><div class='name'>WSL</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/leetcode/" href="/categories/leetcode/"
-            id="categoriesleetcode"
-            ><div class='name'>leetcode</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-text"> 解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解法1暴力"><span class="toc-text"> 解法1:暴力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法2哈希map"><span class="toc-text"> 解法2:哈希map</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud blur desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/Music/" style="font-size: 14px; color: #999">Music</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/leetcode/" style="font-size: 24px; color: #555">leetcode</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 24px; color: #555">题解</a>
-    </div>
-  </section>
-
-
-  
 
   
 
