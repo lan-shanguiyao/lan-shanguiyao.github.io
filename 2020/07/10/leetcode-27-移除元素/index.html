@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,21 @@
 
   <!-- 页面元数据 -->
   
-    <title>归档：2020/3 - DunLan&#39;s Island</title>
+    <title>leetcode 27 移除元素 - DunLan&#39;s Island</title>
   
+    <meta name="keywords" content="题解,leetcode">
+  
+  
+    <meta name="description" content=" leetcode 27.移除元素
+ 题目
+判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+
+题目链接
+
+参考文章：
+
+官方题解
+">
   
 
   <!-- feed -->
@@ -90,7 +101,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -275,22 +286,11 @@
       
 
 <div class='l_main'>
-	
-		
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
   
+
+  
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -299,7 +299,18 @@
       
       <div class="meta" id="header-meta">
         
+          
+  <h1 class="title">
+    <a href="/2020/07/10/leetcode-27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
+      leetcode 27 移除元素
+    </a>
+  </h1>
+
+
+        
         <div class='new-meta-box'>
+          
+            
           
             
               
@@ -316,9 +327,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/WSL/' rel="nofollow">
+    <a href='/categories/leetcode/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>WSL</p>
+      <p>leetcode</p>
     </a>
   </div>
 
@@ -329,14 +340,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年3月3日</p>
+    <p>发布于：2020年7月10日</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -354,149 +360,184 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="win10-wsl中搭建net开发环境"><a class="markdownIt-Anchor" href="#win10-wsl中搭建net开发环境"></a> Win10 WSL中搭建.NET开发环境</h1>
-<p>此方法适用于电脑运行虚拟机卡顿（比如我）或电脑剩余空间不足以安装虚拟机的同学。</p>
-<p>优点：坑相对较少，节约内存、储存空间</p>
-<p>缺点：没有图形化界面等，<strong>仅支持 Win10</strong></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/03/03/WSLtitle/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="leetcode-27移除元素"><a class="markdownIt-Anchor" href="#leetcode-27移除元素"></a> leetcode 27.移除元素</h1>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<blockquote>
+<p><a href="https://leetcode-cn.com/problems/remove-element/" target="_blank" rel="noopener">题目链接</a></p>
+</blockquote>
+<p>参考文章：</p>
+<blockquote>
+<p><a href="https://leetcode-cn.com/problems/remove-element/solution/yi-chu-yuan-su-by-leetcode/" target="_blank" rel="noopener">官方题解</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>此题关键是要求原地算法，一开始全无思路，去打了会崩三之后😂猛然想到，此题与昨天做的26删除排序数组中的重复项及其相似，而26题的解法是双指针，一个快指针，一个慢指针。由此可得一下代码：</p>
+<p>不等就复制，本质上覆盖了原数组</p>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeElement</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> val)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (nums.empty())
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 
-          </div>
+    <span class="hljs-comment">//双指针1，类似26题，不会改变元素顺序</span>
+    <span class="hljs-keyword">unsigned</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (; j &lt; nums.<span class="hljs-built_in">size</span>(); j++)
+    {
+        <span class="hljs-keyword">if</span> (nums[j] != val)
+            nums[i++] = nums[j];
+    }
+
+    <span class="hljs-keyword">return</span> i;
+}
+</code></pre>
+<p>仔细审题之后发现，元素的顺序是可以改变的，而上方法遇到<code>{0, 1, 2, 3, 5, 4}</code>时会将前四个元素复制一遍，当我们遇到 <code>nums[i] = val</code> 时，我们可以将当前元素与最后一个元素进行交换，并释放最后一个元素(<code>n = nums.size(); n --</code>)。这实际上使数组的大小减少了 1。</p>
+<p>此时有个问题，当遇到<code>{0, 4, 2, 3, 5, 4}</code>情况时，交换后，仍然是要被替换的元素。此时我们交换后并不改变<code>i</code>的值，仅仅改变<code>n</code>的值，这样，下次循环仍然会判断<code>nums[i] == val</code>。</p>
+<pre class="highlight"><code class="">int removeElement(vector&lt;int&gt; &amp;nums, int val)
+{
+    if (nums.empty())
+        return 0;
+
+    unsigned i = 0, n = nums.size();
+    while (i &lt; n)
+    {
+        if (nums[i] == val)
+        {
+            nums[i] = nums[n - 1];
+            n--;
+        }
+        else
+            i++;
+    }
+
+    return n;
+}
+</code></pre>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-10T22:02:58+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月10日</p>
+  </a>
+</div>
+
         
       
-    
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A2%98%E8%A7%A3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>题解</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/leetcode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>leetcode</p></a></div>
+
+
+        
+      
+        
+      
+    </div>
   </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/07/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'>
+                <p class='title'>leetcode 1 两数之和<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'> leetcode 1.两数之和
+ 题目
+给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+你可以假设每种输入只会对应...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
   
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
 
   
 
 
-	
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'leetcode 27 移除元素',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger blur desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/lan-shanguiyao/cdn-blog/images/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>There is only heroism in the world,to see the world as it is and to love it</p>
-
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/zaying@protonmail.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/lan-shanguiyao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category blur desktop">
+
+  <section class="widget toc-wrapper blur desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/WSL/" href="/categories/WSL/"
-            id="categoriesWSL"
-            ><div class='name'>WSL</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/leetcode/" href="/categories/leetcode/"
-            id="categoriesleetcode"
-            ><div class='name'>leetcode</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text"> 思路</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud blur desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 19px; color: #777">C++</a> <a href="/tags/Music/" style="font-size: 14px; color: #999">Music</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/leetcode/" style="font-size: 24px; color: #555">leetcode</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 24px; color: #555">题解</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -579,14 +620,6 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>leetcode 27 移除元素</title>
+      <link href="/2020/07/10/leetcode-27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/"/>
+      <url>/2020/07/10/leetcode-27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="leetcode-27移除元素"><a class="markdownIt-Anchor" href="#leetcode-27移除元素"></a> leetcode 27.移除元素</h1><h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p><blockquote><p><a href="https://leetcode-cn.com/problems/remove-element/" target="_blank" rel="noopener">题目链接</a></p></blockquote><p>参考文章：</p><blockquote><p><a href="https://leetcode-cn.com/problems/remove-element/solution/yi-chu-yuan-su-by-leetcode/" target="_blank" rel="noopener">官方题解</a></p></blockquote><a id="more"></a><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2><p>此题关键是要求原地算法，一开始全无思路，去打了会崩三之后😂猛然想到，此题与昨天做的26删除排序数组中的重复项及其相似，而26题的解法是双指针，一个快指针，一个慢指针。由此可得一下代码：</p><p>不等就复制，本质上覆盖了原数组</p><pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeElement</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> val)</span></span>{    <span class="hljs-keyword">if</span> (nums.empty())        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;    <span class="hljs-comment">//双指针1，类似26题，不会改变元素顺序</span>    <span class="hljs-keyword">unsigned</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;    <span class="hljs-keyword">for</span> (; j &lt; nums.<span class="hljs-built_in">size</span>(); j++)    {        <span class="hljs-keyword">if</span> (nums[j] != val)            nums[i++] = nums[j];    }    <span class="hljs-keyword">return</span> i;}</code></pre><p>仔细审题之后发现，元素的顺序是可以改变的，而上方法遇到<code>{0, 1, 2, 3, 5, 4}</code>时会将前四个元素复制一遍，当我们遇到 <code>nums[i] = val</code> 时，我们可以将当前元素与最后一个元素进行交换，并释放最后一个元素(<code>n = nums.size(); n --</code>)。这实际上使数组的大小减少了 1。</p><p>此时有个问题，当遇到<code>{0, 4, 2, 3, 5, 4}</code>情况时，交换后，仍然是要被替换的元素。此时我们交换后并不改变<code>i</code>的值，仅仅改变<code>n</code>的值，这样，下次循环仍然会判断<code>nums[i] == val</code>。</p><pre class="highlight"><code class="">int removeElement(vector&lt;int&gt; &amp;nums, int val){    if (nums.empty())        return 0;    unsigned i = 0, n = nums.size();    while (i &lt; n)    {        if (nums[i] == val)        {            nums[i] = nums[n - 1];            n--;        }        else            i++;    }    return n;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode 1 两数之和</title>
       <link href="/2020/07/07/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
       <url>/2020/07/07/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
