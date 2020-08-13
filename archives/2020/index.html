@@ -297,9 +297,138 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box blur reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+        <div class='new-meta-box'>
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://lan-shanguiyao.github.io/" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/lan-shanguiyao/cdn-blog/images/avatar.jpg">
+    <p>DunLan</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>数据库</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月13日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="快速在服务器上安装sql-server"><a class="markdownIt-Anchor" href="#快速在服务器上安装sql-server"></a> 快速在服务器上安装SQL Server</h1>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<h3 id="设置本机防火墙"><a class="markdownIt-Anchor" href="#设置本机防火墙"></a> 设置本机防火墙</h3>
+<p>打开本机的防火墙，在入站规则处新建一个<strong>端口</strong>类型的入站规则，协议为 TCP，端口为 1433 或其他。</p>
+<h3 id="设置服务器入站端口规则"><a class="markdownIt-Anchor" href="#设置服务器入站端口规则"></a> 设置服务器入站端口规则</h3>
+<p>本文以 <a href="https://azure.microsoft.com/en-us/" target="_blank" rel="noopener">Microsoft Azure</a> 云（非世纪互联版）Ubuntu 虚拟机为例，创建一个 VPS 或者叫虚拟机，在网络处添加一个入站端口规则。（详见 此文：[<a href="https://docs.microsoft.com/zh-cn/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart#configure-for-remote-connections/" target="_blank" rel="noopener">Azure SQL 文档</a>] 及下图）</p>
+<p>PS：不要参照上面的文档中说的  在服务列表中选择&quot;MS SQL&quot;  它在演你！（不要问我是怎么知道的😭） 按下图设置就好</p>
+<p><img src="https://i.loli.net/2020/08/13/MNTPfWvwtLXiYAe.png" alt="添加入站规则" /></p>
+<p>然后通过SSH登陆，并打开一个终端。</p>
+<p>PS：使用 Windows Terminal 的同学可以直接在设置文件中的 <code>profiles</code> 或者 <code>list</code> 列表中添加</p>
+<pre class="highlight"><code class="json">{
+    <span class="hljs-attr">"guid"</span>: <span class="hljs-string">"{b23e9e35-82da-4c33-8694-02566110848e}"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"name"</span>,
+    <span class="hljs-attr">"commandline"</span>: <span class="hljs-string">"powershell.exe ssh &lt;用户名，一般是root&gt;@&lt;服务器IP地址&gt;"</span>,
+}
+</code></pre>
+<p>其中 UUID 可以通过 <a href="https://www.uuidgenerator.net/" target="_blank" rel="noopener">这个</a> 网站生成</p>
+<p>然后即可<strong>通过密码登陆</strong>了</p>
+<h3 id="设置-vps-防火墙规则可选"><a class="markdownIt-Anchor" href="#设置-vps-防火墙规则可选"></a> 设置 VPS 防火墙规则（可选）</h3>
+<p>无论是否开启 Ubuntu 的防火墙，实测，对连接数据库无影响，但是<s>强迫症嘛，当然是要搞滴</s>(不是)为了保险起见，还是设置一下。</p>
+<p>防火墙应该是默认关闭的。</p>
+<p><strong>首先执行</strong> <code>sudo ufw allow 22/tcp</code> 命令，<strong>22是 SSH 登陆需要的端口</strong></p>
+<p>再执行 <code>sudo ufw allow 1433/tcp</code> 命令，添加数据库端口</p>
+<p>执行 <code>sudo ufw enable</code> 打开防火墙</p>
+<p><code>sudo ufw status</code> 查看端口规则</p>
+<p>其他命令参考：</p>
+<pre class="highlight"><code class="shell">sudo ufw disable                  //关闭防火墙
+sudo ufw reload                   //重启防火墙，使配置生效
+sudo ufw default deny             //拒接所有外来访问，本机能正常访问外部
+sudo ufw delete allow 22          //关闭21端口
+sudo ufw allow from 192.168.121.1 //指定ip为192.168.121.1的计算机操作所有端口
+sudo ufw allow from 192.168.121.2 to any port 3306 //开放指定ip为__的计算机访问本机的3306端口
+</code></pre>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<p>参考微软 <a href="https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#install-sql-server" target="_blank" rel="noopener">快速入门：安装 SQL Server 并在 Ubuntu 上创建数据库</a> 这篇文章</p>
+<p>我就不复制粘贴里面的内容了</p>
+<p>还有故障排除的一篇：<a href="https://docs.microsoft.com/zh-cn/sql/linux/sql-server-linux-troubleshooting-guide?view=sql-server-ver15#connection" target="_blank" rel="noopener">对 Linux 上的 SQL Server 进行故障排除</a></p>
+<p>PS：<s>其实是我懒不想贴了</s> 此处 非常顺利 没报任何错，照着这两篇官方文档安装即可</p>
+<h2 id="连接"><a class="markdownIt-Anchor" href="#连接"></a> 连接</h2>
+<p>此处采用 <a href="https://www.jetbrains.com/datagrip/" target="_blank" rel="noopener">DataGrip</a> 做例子</p>
+<p><img src="https://i.loli.net/2020/08/13/x1fOXUHerp2zRgy.png" alt="DataGrip设置界面" /></p>
+<p>Host 处填 VPS 的公共 IP 地址</p>
+<p>密码是数据库的密码</p>
+<p>Port 即准备工作中开放的端口</p>
+<p>测试连接通过后即可愉快的使用啦</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1122,6 +1251,11 @@ window.MathJax = {
             id="categoriesleetcode"
             ><div class='name'>leetcode</div><div class='badge'>(3)</div></a></li>
         
+          <li><a class="flat-box"
+            title="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"
+            id="categoriesE695B0E68DAEE5BA93"
+            ><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
+        
       </ul>
     </div>
   </section>
@@ -1144,7 +1278,7 @@ window.MathJax = {
 
 
     <div class='content'>
-      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 19px; color: #777">C++</a> <a href="/tags/Music/" style="font-size: 14px; color: #999">Music</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/leetcode/" style="font-size: 24px; color: #555">leetcode</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 24px; color: #555">题解</a>
+      <a href="/tags/NET/" style="font-size: 14px; color: #999">.NET</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C#</a> <a href="/tags/C/" style="font-size: 19px; color: #777">C++</a> <a href="/tags/Music/" style="font-size: 14px; color: #999">Music</a> <a href="/tags/WSL/" style="font-size: 14px; color: #999">WSL</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/leetcode/" style="font-size: 24px; color: #555">leetcode</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 19px; color: #777">折腾</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 24px; color: #555">题解</a>
     </div>
   </section>
 
