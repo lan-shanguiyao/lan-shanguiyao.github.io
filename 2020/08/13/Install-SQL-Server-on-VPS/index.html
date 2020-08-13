@@ -21,6 +21,13 @@
     <meta name="keywords" content="折腾,数据库">
   
   
+    <meta name="description" content=" 快速在服务器上安装SQL Server
+ 准备工作
+ 设置本机防火墙
+打开本机的防火墙，在入站规则处新建一个端口类型的入站规则，协议为 TCP，端口为 1433 或其他。
+ 设置服务器入站端口规则
+本文以 Microsoft Azure 云（非世纪互联版）Ubuntu 虚拟机为例，创建一个 VPS 或者叫虚拟机...">
+  
 
   <!-- feed -->
   
@@ -358,6 +365,7 @@
 <p>打开本机的防火墙，在入站规则处新建一个<strong>端口</strong>类型的入站规则，协议为 TCP，端口为 1433 或其他。</p>
 <h3 id="设置服务器入站端口规则"><a class="markdownIt-Anchor" href="#设置服务器入站端口规则"></a> 设置服务器入站端口规则</h3>
 <p>本文以 <a href="https://azure.microsoft.com/en-us/" target="_blank" rel="noopener">Microsoft Azure</a> 云（非世纪互联版）Ubuntu 虚拟机为例，创建一个 VPS 或者叫虚拟机，在网络处添加一个入站端口规则。（详见 此文：[<a href="https://docs.microsoft.com/zh-cn/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart#configure-for-remote-connections/" target="_blank" rel="noopener">Azure SQL 文档</a>] 及下图）</p>
+<a id="more"></a>
 <p>PS：不要参照上面的文档中说的  在服务列表中选择&quot;MS SQL&quot;  它在演你！（不要问我是怎么知道的😭） 按下图设置就好</p>
 <p><img src="https://i.loli.net/2020/08/13/MNTPfWvwtLXiYAe.png" alt="添加入站规则" /></p>
 <p>然后通过SSH登陆，并打开一个终端。</p>
@@ -429,7 +437,7 @@ sudo ufw allow from 192.168.121.2 to any port 3306 //开放指定ip为__的计�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-13T22:10:36+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-13T22:18:24+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年8月13日</p>
